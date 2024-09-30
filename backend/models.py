@@ -182,7 +182,7 @@ class ProductInfo(models.Model):
 
     class Meta:
         verbose_name = 'Информация о продукте'
-        verbose_name_plural = "Информационный список о продуктах"
+        verbose_name_plural = "Список информации о продуктах"
         constraints = [
             models.UniqueConstraint(fields=['product', 'shop', 'external_id'], name='unique_product_info'),
         ]
@@ -195,8 +195,8 @@ class Parameter(models.Model):
     name = models.CharField(max_length=40, verbose_name='Название')
 
     class Meta:
-        verbose_name = 'Имя параметра'
-        verbose_name_plural = "Список имен параметров"
+        verbose_name = 'Название параметра'
+        verbose_name_plural = "Список названий параметров"
         ordering = ('-name',)
 
     def __str__(self):
@@ -255,7 +255,7 @@ class Order(models.Model):
 
     class Meta:
         verbose_name = 'Заказ'
-        verbose_name_plural = "Список заказ"
+        verbose_name_plural = "Список заказов"
         ordering = ('-created',)
 
     def __str__(self):
@@ -274,8 +274,8 @@ class OrderItem(models.Model):
     quantity = models.PositiveIntegerField(verbose_name='Количество')
 
     class Meta:
-        verbose_name = 'Заказанная позиция'
-        verbose_name_plural = "Список заказанных позиций"
+        verbose_name = 'Позиция в заказе'
+        verbose_name_plural = "Список позиций в заказе"
         constraints = [
             models.UniqueConstraint(fields=['order_id', 'product_info'], name='unique_order_item'),
         ]
